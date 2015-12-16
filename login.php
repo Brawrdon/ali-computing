@@ -29,9 +29,19 @@
 		$user_lname = $username_record[2];
 		$user_password = $username_record[4];
 		
-		echo "<p><b>ID:</b> $user_id</p>";
-		echo "<p><b>Name:</b> $user_fname $user_lname</p>";
-		echo "<p><b>Password:</b> $user_password</p>";
+		# Checks if password entered matches the one found in the database
+		if($login_password == $user_password)
+		{
+			echo "<p><b>ID:</b> $user_id</p>";
+			echo "<p><b>Name:</b> $user_fname $user_lname</p>";
+			echo "<p><b>Password:</b> $user_password</p>";	
+		}
+		
+		else 
+		{
+			echo "<p>Sorry that was the wrong password</p>";
+		}
+		
 	}
 	else
 	{
