@@ -1,13 +1,13 @@
 <?php
 	# Runs the connection script
-	require("connect.php");
+	require_once("connect.php");
 	
 	# Sets variables to the data entered in the HTML form
 	$login_username = $_POST["username"];
 	$login_password = $_POST["password"];
 	
 	# Set varaibles to MySQL query
-	$username_sql = "SELECT * FROM `students` WHERE `student_username` LIKE '$login_username'";
+	$username_sql = "SELECT * FROM students WHERE student_username LIKE '$login_username'";
 	
 	# Echoes out MySQL query for validation
 	echo $username_sql;
@@ -31,10 +31,8 @@
 		
 		# Checks if password entered matches the one found in the database
 		if($login_password == $user_password)
-		{
-			echo "<p><b>ID:</b> $user_id</p>";
-			echo "<p><b>Name:</b> $user_fname $user_lname</p>";
-			echo "<p><b>Password:</b> $user_password</p>";	
+		{			
+			header("location: topics.php");
 		}
 		
 		else 
