@@ -3,15 +3,24 @@
 	
 	echo "<h2><center><b>Topics List</b></center></h2>";
 	
-	$topics_sql = "SELECT * FROM topics";
+	$topic_sql = "SELECT * FROM topics";
 	
-	echo $topics_sql;
+	echo $topic_sql;
 	
-	$topics_query = mysqli_query($connection, $topics_sql);
+	$topic_query = mysqli_query($connection, $topic_sql);
 	
-	if(mysqli_num_rows($topics_query) > 0)
+	if(mysqli_num_rows($topic_query) > 0)
 	{
 		echo "<p>There is data here</p>";
+		
+		while($topic_record = mysqli_fetch_assoc($topic_query))
+		{
+			$topic_id = $topic_record["topic_id"];
+			echo "<p>Title: " . $topic_record["topic_title"] .
+			"<form action=\"quiz.php\" method=\"POST\">
+			<input type=\"hidden\" name=\"topic\" value=\"$topic_id\">
+			<input type=\"submit\" value=\"Start Quiz\"></form></p>";	
+		}
 
 	}
 	else
