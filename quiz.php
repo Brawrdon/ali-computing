@@ -1,6 +1,5 @@
 <?php
 	require_once("connect.php");
-	
-	echo "<p>" . $_COOKIE["topic_id"] . "</p>";
+	echo "<p> The ID from the cookie is: " . $_COOKIE["topic_id"] . "</p>";
 ?>
 		
