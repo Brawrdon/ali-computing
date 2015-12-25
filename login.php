@@ -20,21 +20,22 @@
 	{
 		echo "<p>Username found</p>";
 		
-		$username_record = mysqli_fetch_array($username_query, MYSQLI_NUM);
+		$username_record = mysqli_fetch_assoc($username_query);
 		
 		# Data taken from database	
 		echo "<h3>Data taken from database</h3>";
-		$user_id = $username_record[0];
-		$user_fname = $username_record[1];
-		$user_lname = $username_record[2];
-		$user_password = $username_record[4];
+		$user_id = $username_record["student_id"];
+		$user_fname = $username_record["student_fname"];
+		$user_lname = $username_record["student_lname"];
+		$user_password = $username_record["student_password"];
 		
 		# Checks if password entered matches the one found in the database
 		if($login_password == $user_password)
 		{			
+			setcookie("login", $user_id);
 			header("location: topics.php");
 		}
-		
+			
 		else 
 		{
 			echo "<p>Sorry that was the wrong password</p>";
