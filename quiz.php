@@ -2,13 +2,20 @@
 	# Runs the connection script
 	require_once("connect.php");
 	
+	# Takes the submitted data
+	$topic_id = $_POST["topic"];
+	
+	# Creates and sets the cookies 
+	setcookie("topic_id", $topic_id);
+	
+	# Sets the ID to the data saved in the cookies
+	$_COOKIE["topic_id"] = $topic_id;	
+	
 	# Outputs the data found in the saved cookies
 	echo "<p> The topic ID from the cookie is: " . $_COOKIE["topic_id"] . "</p>";
 	echo "<p> The user ID from the cookie is: " . $_COOKIE["login"] . "</p>";
 	
-	# Sets the ID to the data saved in the cookies
-	$topic_id = $_COOKIE["topic_id"];
-	
+
 	$quiz_sql = "SELECT * FROM questions WHERE topic_id = $topic_id ";
 	
 	echo $quiz_sql;
