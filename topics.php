@@ -21,7 +21,7 @@
 		{
 			$topic_id = $topic_record["topic_id"];
 			echo "<p>Title: " . $topic_record["topic_title"] .
-			"<form action=\"setquizcookie.php\" method=\"POST\">
+			"<form action=\"quiz.php\" method=\"POST\">
 			<input type=\"hidden\" name=\"topic\" value=\"$topic_id\">
 			<input type=\"submit\" value=\"Start Quiz\"></form></p>";	
 		}
