@@ -1,11 +1,12 @@
 <?php
 	# Sets the connection variables
-	$host = "localhost";
-	$database_username = "root";
-	$database_password = "WrongPassword";
+	$host = "###";
+	$database_username = "###";
+	$database_password = "###";
+	$database_name = "###";
     
     # Runs query to connect to database
-    $connection = mysqli_connect($host, $database_username, $database_password);
+    $connection = mysqli_connect($host, $database_username, $database_password, $database_name);
     
     # Checks whether or not a connection has been established
     if(!$connection){
