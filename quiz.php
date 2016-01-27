@@ -25,17 +25,21 @@
 			$answer_2 = $question_record["question_answer2"];
 			$answer_3 = $question_record["question_answer3"];
 			$answer_4 = $question_record["question_correctanswer"];
+			$answer_order = array($answer_1,$answer_2,$answer_3,$answer_4);
+			shuffle($answer_order);
 
 			echo "<p><b>Question Tite: </b>" . $question_title . "<p>";
-			echo "<form action=\"submit.php\" method=\"POST\"><input type=\"radio\" name=\"answers\" value=\"$answer_1\">$answer_1
-			<br />
-			<input type=\"radio\" name=\"answers\" value=\"$answer_2\">$answer_2
-			<br />
-			<input type=\"radio\" name=\"answers\" value=\"$answer_3\">$answer_3
-			<br />
-			<input type=\"radio\" name=\"answers\" value=\"$answer_4\">$answer_4
-			<br />
-			<input type =\"hidden\" name=\"correct\" value=\"$answer_4\">
+			
+			echo "<form action=\"submit.php\" method=\"POST\">";
+			
+			for($x = 1; $x <= 4; $x++){
+			
+			$question_output = array_pop($answer_order);
+			echo "<input type=\"radio\" name=\"answers\" value=\"$question_output\">$question_output
+			<br />";
+
+			}
+			echo "<input type =\"hidden\" name=\"correct\" value=\"$answer_4\">
 			<input type=\"submit\" value=\"Submit\"></form>";
 		}
 		else
@@ -64,12 +68,7 @@
 		$topic_id = $_COOKIE["topic_id"];
 		$question_number = $_COOKIE["question_number"];
 		question($question_number);
-	}
-
-
-
-
-	
+	}	
 
 	# Outputs the data found in the saved cookies
 	echo "<p> The topic ID from the cookie is: " . $_COOKIE["topic_id"] . "</p>";
