@@ -6,6 +6,8 @@
 	$chosen_answer = $_POST["answers"];
 	$correct_answer = $_POST["correct"];
 	
+	$score = $_COOKIE["score"];
+		
 	# Increments the value in the question number cookie
 	$question_number = $_COOKIE["question_number"];
 	$question_number = $question_number + 1;
@@ -15,6 +17,9 @@
 	if($chosen_answer == $correct_answer)
 	{
 		echo "<p>You got the answer right!</p>";
+		# Increments the score
+		$score = $score + 1;
+		setcookie("score", $score);
 	}	
 	else
 	{
