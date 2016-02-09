@@ -8,10 +8,10 @@
 		<header>
 			Ali Computing
 		</header>
-		
+		<div class="content">
 		<?php 
 			if(!isset($_COOKIE["login"])){
-			echo "<div class=\"login_form\">
+			echo "<div class=\"login-form\">
 			<form action=\"login.php\" method=\"POST\">
 			Username: <input type=\"text\" name=\"username\" class=\"username\">
 			<br />
@@ -25,5 +25,6 @@
 			header("location: topics.php");
 	}	
 	?>
+	</div>
 	</body>
 </html>

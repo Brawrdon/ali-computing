@@ -1,4 +1,5 @@
 body {
+	background-color: #F5F5F5;
 	margin: 0;
 	padding: 0;
 }
@@ -9,10 +10,14 @@ header {
 	padding: 10px;
 }
 
-.login_form {
-
+.content {
+	background: #FFFFFF;
+	margin: 0 auto;
+	max-width: 900px;
+	padding: 25px;
 }
 
-.username {
-	color: white;
-	}
+.login-form {
+	text-align: right;
+	margin-right: 50px;
+}
