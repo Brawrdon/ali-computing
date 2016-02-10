@@ -1,7 +1,21 @@
+/* Sets layout for the entire page */
+
 body {
 	background-color: #F5F5F5;
+	font-size: 18px;
 	margin: 0;
 	padding: 0;
+}
+
+/* Sets layout for the header tags */
+
+h1 {
+	font-size: 26px;
+}
+
+h2 {
+	margin: 0 0 35px 0;
+	text-align: center;
 }
 
 header {
@@ -10,14 +24,68 @@ header {
 	padding: 10px;
 }
 
-.content {
+/* Div tag elements */
+.page-wrapper {
 	background: #FFFFFF;
 	margin: 0 auto;
 	max-width: 900px;
 	padding: 25px;
+	overflow: hidden;
+	width: 100%;
+}
+
+.inner-content {
+	margin: 0 auto;
+	width: 95%;
 }
 
 .login-form {
-	text-align: right;
-	margin-right: 50px;
+	margin: 0 auto;
+	text-align: center;
+	width: 500px;
 }
+
+input[type=text], input[type=password]  {
+    background-color: white; 
+    border: 1px solid black;
+	font-size: 16px;
+    padding: 10px 10px;
+}
+
+/* Sets layout for specific form elements */
+input[type=submit] {
+    background-color: #D7FCD4; 
+    border: 0 none;
+	font-size: 16px;
+    padding: 10px 10px;
+}
+
+input[type=submit]:hover {
+	background-color: #B1F4AA;
+}
+
+.title {
+	font-size: 18px;
+	text-decoration: underline;
+}
+
+.topic {
+	float: left;
+	padding: 20px;
+	text-align: center;
+	width: 245px;
+}
+
+.answer {
+	float: left;
+	font-size: 16px;
+	margin-bottom: 10px;
+	width: 45%
+
+}
+
+.correct-answer {
+	color: green;
+}
+
+

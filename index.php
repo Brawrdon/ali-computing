@@ -6,9 +6,9 @@
 	</head>
 	<body>
 		<header>
-			Ali Computing
+			<h1>Ali Computing</h1>
 		</header>
-		<div class="content">
+		<div class="page-wrapper">
 		<?php 
 			if(!isset($_COOKIE["login"])){
 			echo "<div class=\"login-form\">

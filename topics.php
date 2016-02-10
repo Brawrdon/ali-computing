@@ -1,34 +1,44 @@
-<?php
-	# Runs the connection script
-	require_once("connect.php");
+<DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>Topics - Ali Computing</title>
+	</head>
+	<body>
+		<header>
+			<h1>Ali Computing</h1>
+		</header>
+		<div class="page-wrapper">
+		<?php
+			# Runs the connection script
+			require_once("connect.php");
 	
-	echo "<h2><center><b>Topics List</b></center></h2>";
+			# Echos heading and inner content tag
+			echo "<h2>Topics List</h2><div class=\"inner-content\">";
 	
-	$topic_sql = "SELECT * FROM topics";
+			$topic_sql = "SELECT * FROM topics";
 	
-	echo $topic_sql;
+			# Runs MySQL query
+			$topic_query = mysqli_query($connection, $topic_sql);
 	
-	# Runs MySQL query
-	$topic_query = mysqli_query($connection, $topic_sql);
+			#Checks the result of the query
+			if(mysqli_num_rows($topic_query) > 0)
+			{
 	
-	#Checks the result of the query
-	if(mysqli_num_rows($topic_query) > 0)
-	{
-		echo "<p>There is data here</p>";
-	
-		# Gets each record, outputting them and setting an ID to the buttons
-		while($topic_record = mysqli_fetch_assoc($topic_query))
-		{
-			$topic_id = $topic_record["topic_id"];
-			echo "<p>Title: " . $topic_record["topic_title"] .
-			"<form action=\"quiz.php\" method=\"POST\">
-			<input type=\"hidden\" name=\"topic\" value=\"$topic_id\">
-			<input type=\"submit\" value=\"Start Quiz\"></form></p>";	
-		}
-	}
-	else
-	{
-		echo "<p>There is no data here</p>";
-	}
+				# Gets each record, outputting them and setting an ID to the buttons
+				while($topic_record = mysqli_fetch_assoc($topic_query))
+				{
+					$topic_id = $topic_record["topic_id"];
+					echo "<div class=\"topic\"><p class=\"title\">" . $topic_record["topic_title"] .
+					"<form action=\"quiz.php\" method=\"POST\">
+					<input type=\"hidden\" name=\"topic\" value=\"$topic_id\">
+					<input type=\"submit\" value=\"Start Quiz\"></form></p></div>";	
+				}
+			}
+			# Ends inner content tag
+			echo "</div>";
 
-?>
+		?>
+		</div>
+	</body>
+</html>
